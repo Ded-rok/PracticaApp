@@ -88,5 +88,20 @@ namespace PracticaWpfApp
         {
             LoadData();
         }
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim();
+            if (string.IsNullOrEmpty(keyword))
+            {
+                LoadData(); // если поле пустое — показываем всё
+            }
+            else
+            {
+                topics.Clear();
+                var list = DatabaseHelper.SearchTopics(keyword);
+                foreach (var topic in list)
+                    topics.Add(topic);
+            }
+        }
     }
 }

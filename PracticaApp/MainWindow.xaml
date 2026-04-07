@@ -6,6 +6,7 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -15,8 +16,12 @@
             <Button x:Name="btnDelete" Content="Удалить" Width="80" Height="30" Margin="5" Click="btnDelete_Click"/>
             <Button x:Name="btnRefresh" Content="Обновить" Width="80" Height="30" Margin="5" Click="btnRefresh_Click"/>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <TextBox x:Name="txtSearch" Width="200" Height="25" Margin="5" ToolTip="Введите название темы"/>
+            <Button x:Name="btnSearch" Content="Найти" Width="80" Height="30" Click="btnSearch_Click"/>
+        </StackPanel>
 
-        <DataGrid x:Name="dgTopics" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+        <DataGrid x:Name="dgTopics" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True"
                   SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
